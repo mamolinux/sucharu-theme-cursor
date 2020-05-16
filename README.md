@@ -3,7 +3,7 @@
 Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors with different [colours][colour].
 
 [freedomos]: https://freedom-os.sourceforge.io/
-[colours]: https://github.com/hsbasu/freedomos-cursors#supported-colours
+[colour]: https://github.com/hsbasu/freedomos-cursors#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
 The source files were made in Inkscape, and the theme was designed to pair well with my icon pack, [La Capitaine][la-capitaine-icons].
