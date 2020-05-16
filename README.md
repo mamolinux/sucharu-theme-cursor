@@ -143,6 +143,10 @@ If you like this cursor theme and want to support me, please consider [donating]
 
 ## Preview
 
-| Aqua                  | Blue                   | Dark/Black             | Green                  |
-| --------------------- | ---------------------- | ---------------------- | ---------------------- |
-| ![](preview-dark.png) | ![](preview-light.png) | ![](preview/dark.png) | ![](preview/light.png) |
+| Aqua                  | Blue                   |
+| --------------------- | ---------------------- |
+| ![](preview/dark.png) | ![](preview/light.png) |
+
+| Dark/Black             | Green                 |
+| ---------------------- | --------------------- |
+| ![](preview/dark.png) | ![](preview/light.png) |
