@@ -1,6 +1,9 @@
 # # freedomos-cursor
 
-Cursor theme for Freedom OS Based on Capitaine Cursors.
+Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors.
+
+[freedomos]: https://freedom-os.sourceforge.io/
+
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
 The source files were made in Inkscape, and the theme was designed to pair well with my icon pack, [La Capitaine][la-capitaine-icons].
 
