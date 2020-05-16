@@ -1,8 +1,9 @@
-# Freedom OS Cursors
+## Freedom OS Cursors
 
-Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors.
+Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors with different [colours][colour].
 
 [freedomos]: https://freedom-os.sourceforge.io/
+[colours]: https://github.com/hsbasu/freedomos-cursors#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
 The source files were made in Inkscape, and the theme was designed to pair well with my icon pack, [La Capitaine][la-capitaine-icons].
@@ -10,6 +11,24 @@ The source files were made in Inkscape, and the theme was designed to pair well 
 [la-capitaine-icons]: https://github.com/keeferrourke/la-capitaine-icon-theme
 
 This cursor should scale appropriately for any display resolution.
+
+## Supported Colours
+
+This cursor pack provide the following colours:
+
+| Name        | Build option name   |
+| :---------  | :------------------ |
+| Aqua        | `-t auqa` (default) |
+| Blue        | `-t blue`           |
+| Dark/Black  | `-t dark`           |
+| Green       | `-t green`          |
+| Grey        | `-t grey`           |
+| Pink        | `-t pink`           |
+| Purple      | `-t purple`         |
+| Red         | `-t red`            |
+| Teal        | `-t teal`           |
+| White/Light | `-t light`          |
+| Yellow      | `-t yewllow`        |
 
 ## Supported DPIs
 
@@ -52,11 +71,11 @@ The freshly compiled cursor theme will be located in the `dist/` folder.
 
 The script has a few options described below:
 
-| Option | Values                                      | Description                     |
-| :----- | :------------------------------------------ | :------------------------------ |
-| `-p`   | `unix`, `win32`                             | Build for BSD/Linux, or Windows |
-| `-t`   | `dark`, `light` `red`                       | Choose the variant to build     |
-| `-d`   | See DPIs                                    | Set the max DPI to render       |
+| Option | Values           | Description                     |
+| :----- | :--------------- | :------------------------------ |
+| `-p`   | `unix`, `win32`  | Build for BSD/Linux, or Windows |
+| `-t`   | See Colours      | Choose the variant to build     |
+| `-d`   | See DPIs         | Set the max DPI to render       |
 
 <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small>
 
