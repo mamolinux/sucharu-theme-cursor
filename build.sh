@@ -8,6 +8,7 @@ DEPENDENCIES=(inkscape xcursorgen)
 for dep in "${DEPENDENCIES[@]}"; do
   if ! command -v "$dep" >/dev/null; then
     echo "$dep is not installed, exiting."
+    echo "Please check README.md how to install them."
     exit 1
   fi
 done
