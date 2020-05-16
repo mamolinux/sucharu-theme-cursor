@@ -18,7 +18,7 @@ This cursor pack provide the following colours:
 
 | Name        | Build option name   |
 | :---------  | :------------------ |
-| Aqua        | `-t auqa` (default) |
+| Aqua        | `-t aqua` (default) |
 | Blue        | `-t blue`           |
 | Dark/Black  | `-t dark`           |
 | Green       | `-t green`          |
