@@ -71,11 +71,13 @@ The freshly compiled cursor theme will be located in the `dist/` folder.
 
 The script has a few options described below:
 
-| Option | Values           | Description                     |
-| :----- | :--------------- | :------------------------------ |
-| `-p`   | `unix`, `win32`  | Build for BSD/Linux, or Windows |
-| `-t`   | See Colours      | Choose the variant to build     |
-| `-d`   | See DPIs         | Set the max DPI to render       |
+| Option | Values                | Description                     |
+| :----- | :-------------------- | :------------------------------ |
+| `-p`   | `unix`, `win32`       | Build for BSD/Linux, or Windows |
+| `-t`   | See [Colours][colour] | Choose the variant to build     |
+| `-d`   | See [DPIs][dpi]       | Set the max DPI to render       |
+
+[dpi]: https://github.com/hsbasu/freedomos-cursors#supported-dpis
 
 <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small>
 
