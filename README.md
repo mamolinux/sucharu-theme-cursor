@@ -1,4 +1,4 @@
-# # freedomos-cursor
+# Freedom OS Cursors
 
 Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors.
 
