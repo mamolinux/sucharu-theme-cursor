@@ -1,0 +1,14 @@
+Source: freedom-y-cursors
+Section: gnome
+Priority: extra
+Homepage: https://github.com/hsbasu/freedomos-cursors
+Maintainer: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+
+Package: freedom-y-cursors
+Architecture: all
+Depends: ${misc:Depends}
+Description: FreedomOS Y styled cursors
+ This cursor theme is based on Capitaine Cursors
+ with different colours.

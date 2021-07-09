@@ -33,7 +33,7 @@ p = struct.pack
 program_name = 'anicursorgen'
 program_version = 1.0
 
-def main ():
+def main():
   parser = argparse.ArgumentParser (description='Creates .ani or .cur files from separate images and input metadata.',
                         add_help=False)
   parser.add_argument ('-V', '--version', action='version', version='{}-{}'.format (program_name, program_version),
@@ -165,15 +165,15 @@ def make_cur (frames, args, animated=False):
         frame_png.close ()
         frame_png = shadowed
 
-#   Windows 10 fails to read PNG-compressed cursors for some reason
-#   and the information about storing PNG-compressed cursors is
-#   sparse. This is why PNG compression is not used.
-#   Previously this was conditional on cursor size (<= 48 to be uncompressed).
+  # Windows 10 fails to read PNG-compressed cursors for some reason
+  # and the information about storing PNG-compressed cursors is
+  # sparse. This is why PNG compression is not used.
+  # Previously this was conditional on cursor size (<= 48 to be uncompressed).
     compressed = False
 
-#   On the other hand, Windows 10 refuses to read very large
-#   uncompressed animated cursor files, but does accept
-#   PNG-compressed animated cursors for some reason. Go figure.
+  # On the other hand, Windows 10 refuses to read very large
+  # uncompressed animated cursor files, but does accept
+  # PNG-compressed animated cursors for some reason. Go figure.
     if animated:
       compressed = True
 
@@ -234,7 +234,7 @@ def make_framesets (frames):
       return 1
     else:
       return 0
-
+    
   framesets = sorted (framesets, frameset_size_cmp, reverse=True)
 
   return framesets

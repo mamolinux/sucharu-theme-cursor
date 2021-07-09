@@ -3,37 +3,12 @@
 # Capitaine cursors, macOS inspired cursors based on KDE Breeze
 # Copyright (c) 2016 Keefer Rourke <mail@krourke.org> and others.
 
-# Check dependencies are present.
-DEPENDENCIES=(inkscape xcursorgen)
-for dep in "${DEPENDENCIES[@]}"; do
-  if ! command -v "$dep" >/dev/null; then
-    echo "$dep is not installed, exiting."
-    echo "Please check README.md how to install them."
-    exit 1
-  fi
-done
-
-
-VARIANTS=('blue' 'dark' 'light')
-
-SRC=$PWD/src
-DIST=$PWD/dist
-PLATFORMS=('unix' 'win32')
-BUILD_DIR=$PWD/_build
-SPECS="$SRC/config"
-ALIASES="$SRC/cursor-aliases"
-SIZES=('1' '1.25' '1.5' '2' '2.5' '3' '4' '5' '6' '10')
-DPIS=('lo' 'tv' 'hd' 'xhd' 'xxhd' 'xxxhd')
-SVG_DIM=24
-SVG_DPI=96
-
-# Truncates $SIZES based on the specified max DPI.
-# See https://en.wikipedia.org/wiki/Pixel_density#Named_pixel_densities
-#
-# Args:
-#   $1 = lo, tv, hd, xhd, xxhd, xxxhd
-#
-function set_sizes {
+function set_sizes()
+{
+  # Truncates $SIZES based on the specified max DPI.
+  # See https://en.wikipedia.org/wiki/Pixel_density#Named_pixel_densities
+  # Args:
+  #   $1 = lo, tv, hd, xhd, xxhd, xxxhd
   max_size="$1"
   case $max_size in
     lo)
@@ -60,18 +35,16 @@ function set_sizes {
   esac
 }
 
-# Scales cursor specs to create an xcursor.in file for each cursor spec.
-# The xcursor.in file line-format is as follows:
-#
-#   size xhot yhot filename [ms-delay]
-#
-# See `man 1 xcursorgen` for more details.
-#
-# Spec files are a custom format that I created, as follows:
-#
-#   xhot yhot [frames ms-delay]
-#
-function generate_in {
+
+function generate_in()
+{
+  # Scales cursor specs to create an xcursor.in file for each cursor spec.
+  # The xcursor.in file line-format is as follows:
+  #   size xhot yhot filename [ms-delay]
+  # See `man 1 xcursorgen` for more details.
+  #
+  # Spec files are a custom format that I created, as follows:
+  #   xhot yhot [frames ms-delay]
   mkdir -p "$BUILD_DIR"
 
   # Generate .in files for static cursors.
@@ -107,13 +80,13 @@ function generate_in {
   done
 }
 
-# Renders the source SVGs to PNGs in the $BUILD_DIR.
-#
-# Args:
-#  $1 = 1, 1.5, 2, 2.5, 3, 4, 5, 6, ..
-#  $2 = dark, light
-#
-function render {
+function render()
+{
+  # Renders the source SVGs to PNGs in the $BUILD_DIR.
+  # Args:
+  #  $1 = 1, 1.5, 2, 2.5, 3, 4, 5, 6, ..
+  #  $2 = aqua, blue, dark, green, grey, light, pink, purple, red, teal, yellow
+  #
   name="x$1"
   variant="$2"
   size=$(echo "$SVG_DIM*$1" | bc)
@@ -133,31 +106,68 @@ function render {
   esac
 
   for svg_file in "$SRC/svg/$variant"/*.svg; do
-   inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file"
+    inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file" >log &
   done
+  wait
 }
 
-# Assembles rendered PNGs into a cursor distribution.
-#
-# Args:
-#  $1 = dark, light
-#
-function assemble {
+
+function assemble()
+{
+  # Assembles rendered PNGs into a cursor distribution.
+  #
+  # Args:
+  #  $1 = aqua, blue, dark, green, grey, light, pink, purple, red, teal, yellow
   variant="$1"
 
-  THEME_NAME="FreedomOS Cursors"
-  DIST_DIRNAME="FreedomOS-Cursors"
+  THEME_NAME="FreedomOS"
+  DIST_DIRNAME="FreedomOS"
 
   case "$variant" in
+    aqua)
+      THEME_NAME="$THEME_NAME-Aqua"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Aqua"
+      ;;
     blue)
-      THEME_NAME="$THEME_NAME - Blue"
-      BASE_DIR="$DIST/$DIST_DIRNAME-Blue";;
+      THEME_NAME="$THEME_NAME-Blue"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Blue"
+      ;;
     dark)
-      THEME_NAME="$THEME_NAME - Dark"
-      BASE_DIR="$DIST/$DIST_DIRNAME-Dark";;
+      THEME_NAME="$THEME_NAME-Dark"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Dark"
+      ;;
+    green)
+      THEME_NAME="$THEME_NAME-Green"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Green"
+      ;;
+    grey)
+      THEME_NAME="$THEME_NAME-Grey"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Grey"
+      ;;
     light)
-      THEME_NAME="$THEME_NAME - White" ;;
-      BASE_DIR="$DIST/$DIST_DIRNAME-White";;
+      THEME_NAME="$THEME_NAME-White"
+      BASE_DIR="$DIST/$DIST_DIRNAME-White"
+      ;;
+    pink)
+      THEME_NAME="$THEME_NAME-Pink"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Pink"
+      ;;
+    purple)
+      THEME_NAME="$THEME_NAME-Purple"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Purple"
+      ;;
+    red)
+      THEME_NAME="$THEME_NAME-Red"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Red"
+      ;;
+    teal)
+      THEME_NAME="$THEME_NAME-Teal"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Teal"
+      ;;
+    yellow)
+      THEME_NAME="$THEME_NAME-Yellow"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Yellow"
+      ;;
     *) exit 1 ;;
   esac
 
@@ -167,7 +177,7 @@ function assemble {
   mkdir -p "$BASE_DIR"
   mkdir -p "$OUTPUT_DIR"
 
-  # Move the in files and target variant to the root of the build directory
+  # Move the .in files and target variant to the root of the build directory
   # so that xcursorgen can find everything it needs.
   cp -r "$BUILD_DIR/$variant"/* "$BUILD_DIR"
   pushd "$BUILD_DIR" > /dev/null || return 1
@@ -193,12 +203,14 @@ function assemble {
     touch "$INDEX_FILE"
     echo -e "[Icon Theme]\nName=$THEME_NAME\nComment=A stylish cursor for humans" > "$INDEX_FILE"
   fi
-
+  
   # Copy a thumbnail.png to serve as a preview in some environments.
-  cp "$SRC/thumbnail-$variant.png" "$OUTPUT_DIR/thumbnail.png"
+  cp "$SRC/thumbnail/thumbnail-$variant.png" "$OUTPUT_DIR/thumbnail.png"
 }
 
-function show_usage {
+
+function show_usage()
+{
   echo -e "This script builds the capitaine-cursor theme.\n"
   echo -e "Usage: ./build.sh [ -d DPI ] [ -t VARIANT ] [ -p PLATFORM ]"
   echo -e "  -h, --help\t\tPrint this help"
@@ -209,7 +221,8 @@ function show_usage {
   echo
 }
 
-function validate_option {
+function validate_option()
+{
   valid=0
   case "$1" in
     variant)
@@ -228,11 +241,40 @@ function validate_option {
   return $?
 }
 
+# Check dependencies are present.
+DEPENDENCIES=(inkscape xcursorgen)
+for dep in "${DEPENDENCIES[@]}"; do
+  if ! command -v "$dep" >/dev/null; then
+    echo "$dep is not installed, exiting."
+    echo "Please check README.md how to install them."
+    exit 1
+  fi
+done
+
+ulimit -s 4096
+
+# Let user choose the colour variant
+
+VARIANTS=('aqua' 'blue' 'dark' 'green' 'grey' 'light' 'pink' 'purple' 'red' 'teal' 'yellow')
+echo -e "Choose colour variant from the list below:\n\t(1) Aqua\n\t(2) Blue\n\t(3) Dark/Black\n\t(4) Green\n\t(5) Grey\n\t(6) Light/White\n\t(7) Pink\n\t(8) Purple\n\t(9) Red\n\t(10) Teal\n\t(11) Yellow\n\t(12) All"
+read IN
+
+SRC=$PWD/src
+DIST=$PWD/usr/share/icons
+PLATFORMS=('unix' 'win32')
+BUILD_DIR=$PWD/_build
+SPECS="$SRC/config"
+ALIASES="$SRC/cursor-aliases"
+SIZES=('1' '1.25' '1.5' '2' '2.5' '3' '4' '5' '6' '10')
+DPIS=('lo' 'tv' 'hd' 'xhd' 'xxhd' 'xxxhd')
+SVG_DIM=24
+SVG_DPI=96
+
 # Parse options to script.
 POSITIONAL_ARGS=()
-VARIANT="${VARIANTS[0]}"    # Default = dark
+VARIANT="${VARIANTS[0]}"    # Default = aqua
 PLATFORM="${PLATFORMS[0]}"  # Default = unix
-MAX_DPI=${DPIS[1]}          # Default = tv
+MAX_DPI=${DPIS[3]}          # Default = xhd
 while [[ $# -gt 0 ]]; do
   opt="$1"
   case $opt in
@@ -267,15 +309,33 @@ done
 # Restore positional arguments.
 set -- "${POSITIONAL_ARGS[@]}"
 
-# Begin the build.
+# Begin the build based on User's choice
 set_sizes "$MAX_DPI" || { echo "Unrecognized DPI."; exit 1; }
-generate_in
 
-for VARIANT in "${VARIANTS[@]}"; do
-	for size in "${SIZES[@]}"; do
-	  render "$size" "$VARIANT"
-	done
-	assemble "$VARIANT"
-done
+if [ $IN -gt 0 -a $IN -lt 12 ]; then
+  generate_in
+  echo -e "Building variant: ${VARIANTS[IN-1]}\n"
+  VARIANT=${VARIANTS[IN-1]}
+  for size in "${SIZES[@]}"; do
+    render "$size" "$VARIANT"
+  done
+  assemble "$VARIANT"
+  echo -e "\nBuilding $VARIANT successful."
+elif [ $IN -eq 12 ]; then
+  echo -e "Building all variants:\n"
+  generate_in
+  for VARIANT in "${VARIANTS[@]}"; do
+    for size in "${SIZES[@]}"; do
+      render "$size" "$VARIANT"
+    done
+    assemble "$VARIANT"
+  done
+  echo -e "\nAll variants built successfully."
+else
+	echo -e "Your choice does not match with any of the given.\n"
+  show_usage
+  echo -e "Exiting ...\n"
+	exit 1
+fi
 
 exit 0

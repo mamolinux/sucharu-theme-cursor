@@ -7,7 +7,7 @@ build:
 	bash build.sh
 
 clean:
-	-rm -rf _build/ dist/ *.tar.gz log
+	-rm -rf _build usr *.tar.gz log
 
 install:
 	mkdir -p $(DESTDIR)$(PREFIX)/share/icons
