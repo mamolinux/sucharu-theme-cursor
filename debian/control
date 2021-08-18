@@ -1,6 +1,6 @@
 Source: freedom-y-cursors
 Section: gnome
-Priority: extra
+Priority: optional
 Homepage: https://github.com/hsbasu/freedomos-cursors
 Maintainer: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
 Build-Depends: debhelper (>= 9)

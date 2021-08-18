@@ -85,7 +85,7 @@ function render()
   # Renders the source SVGs to PNGs in the $BUILD_DIR.
   # Args:
   #  $1 = 1, 1.5, 2, 2.5, 3, 4, 5, 6, ..
-  #  $2 = aqua, blue, dark, green, grey, light, pink, purple, red, teal, yellow
+  #  $2 = Aqua, Blue, Dark, Green, Grey, Light, Pink, Purple, Red, Teal, Yellow
   #
   name="x$1"
   variant="$2"
@@ -106,9 +106,13 @@ function render()
   esac
 
   for svg_file in "$SRC/svg/$variant"/*.svg; do
-    inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file" >log &
+    inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file" >>log &
+    # allow only to execute $(nproc) jobs in parallel
+    if [[ $(jobs -r -p | wc -l) -gt $(nproc) ]]; then
+      # wait only for first job
+      wait $(jobs -p)
+    fi
   done
-  wait
 }
 
 
@@ -117,54 +121,66 @@ function assemble()
   # Assembles rendered PNGs into a cursor distribution.
   #
   # Args:
-  #  $1 = aqua, blue, dark, green, grey, light, pink, purple, red, teal, yellow
+  #  $1 = Aqua, Blue, Brown, Dark, Green, Grey, Light, Orange, Pink, Purple, Red, Sand, Teal, Yellow
   variant="$1"
 
   THEME_NAME="FreedomOS"
   DIST_DIRNAME="FreedomOS"
 
   case "$variant" in
-    aqua)
+    Aqua)
       THEME_NAME="$THEME_NAME-Aqua"
       BASE_DIR="$DIST/$DIST_DIRNAME-Aqua"
       ;;
-    blue)
+    Blue)
       THEME_NAME="$THEME_NAME-Blue"
       BASE_DIR="$DIST/$DIST_DIRNAME-Blue"
       ;;
-    dark)
+    Brown)
+      THEME_NAME="$THEME_NAME-Brown"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Brown"
+      ;;
+    Dark)
       THEME_NAME="$THEME_NAME-Dark"
       BASE_DIR="$DIST/$DIST_DIRNAME-Dark"
       ;;
-    green)
+    Green)
       THEME_NAME="$THEME_NAME-Green"
       BASE_DIR="$DIST/$DIST_DIRNAME-Green"
       ;;
-    grey)
+    Grey)
       THEME_NAME="$THEME_NAME-Grey"
       BASE_DIR="$DIST/$DIST_DIRNAME-Grey"
       ;;
-    light)
-      THEME_NAME="$THEME_NAME-White"
-      BASE_DIR="$DIST/$DIST_DIRNAME-White"
+    Light)
+      THEME_NAME="$THEME_NAME-Light"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Light"
       ;;
-    pink)
+    Orange)
+      THEME_NAME="$THEME_NAME-Orange"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Orange"
+      ;;
+    Pink)
       THEME_NAME="$THEME_NAME-Pink"
       BASE_DIR="$DIST/$DIST_DIRNAME-Pink"
       ;;
-    purple)
+    Purple)
       THEME_NAME="$THEME_NAME-Purple"
       BASE_DIR="$DIST/$DIST_DIRNAME-Purple"
       ;;
-    red)
+    Red)
       THEME_NAME="$THEME_NAME-Red"
       BASE_DIR="$DIST/$DIST_DIRNAME-Red"
       ;;
-    teal)
+    Sand)
+      THEME_NAME="$THEME_NAME-Sand"
+      BASE_DIR="$DIST/$DIST_DIRNAME-Sand"
+      ;;
+    Teal)
       THEME_NAME="$THEME_NAME-Teal"
       BASE_DIR="$DIST/$DIST_DIRNAME-Teal"
       ;;
-    yellow)
+    Yellow)
       THEME_NAME="$THEME_NAME-Yellow"
       BASE_DIR="$DIST/$DIST_DIRNAME-Yellow"
       ;;
@@ -212,11 +228,12 @@ function assemble()
 function show_usage()
 {
   echo -e "This script builds the capitaine-cursor theme.\n"
-  echo -e "Usage: ./build.sh [ -d DPI ] [ -t VARIANT ] [ -p PLATFORM ]"
+  # echo -e "Usage: ./build.sh [ -d DPI ] [ -t VARIANT ] [ -p PLATFORM ]"
+  echo -e "Usage: ./build.sh [ -d DPI ] [ -p PLATFORM ]"
   echo -e "  -h, --help\t\tPrint this help"
   echo -e "  -d, --max-dpi\t\tSet the max DPI to render. Higher values take longer."
   echo -e                "\t\t\tOne of (" "${DPIS[@]}" ")."
-  echo -e "  -t, --type\t\tSpecify the build variant. One of (" "${VARIANTS[@]}" ")."
+  # echo -e "  -t, --type\t\tSpecify the build variant. One of (" "${VARIANTS[@]}" ")."
   echo -e "  -p, --platform\tSpecify the build platform. One of (" "${PLATFORMS[@]}" ")."
   echo
 }
@@ -225,11 +242,11 @@ function validate_option()
 {
   valid=0
   case "$1" in
-    variant)
-      for variant in "${VARIANTS[@]}"; do
-        if [[ "$2" == "$variant" ]]; then valid=1; fi
-      done
-      ;;
+    # variant)
+    #   for variant in "${VARIANTS[@]}"; do
+    #     if [[ "$2" == "$variant" ]]; then valid=1; fi
+    #   done
+    #   ;;
     platform)
       for platform in "${PLATFORMS[@]}"; do
         if [[ "$2" == "$platform" ]]; then valid=1; fi
@@ -255,9 +272,22 @@ ulimit -s 4096
 
 # Let user choose the colour variant
 
-VARIANTS=('aqua' 'blue' 'dark' 'green' 'grey' 'light' 'pink' 'purple' 'red' 'teal' 'yellow')
-echo -e "Choose colour variant from the list below:\n\t(1) Aqua\n\t(2) Blue\n\t(3) Dark/Black\n\t(4) Green\n\t(5) Grey\n\t(6) Light/White\n\t(7) Pink\n\t(8) Purple\n\t(9) Red\n\t(10) Teal\n\t(11) Yellow\n\t(12) All"
+VARIANTS=('Aqua' 'Blue' 'Brown' 'Dark' 'Green' 'Grey' 'Light' 'Orange' 'Pink' 'Purple' 'Red' 'Sand' 'Teal' 'Yellow')
+echo -e "Choose colour variant from the list below:\n\t\
+(0) All(Default)\n\t\
+(1) Aqua\n\t(2) Blue\n\t\
+(3) Brown\n\t(4) Dark/Black\n\t\
+(5) Green\n\t(6) Grey\n\t\
+(7) Light/White\n\t(8) Orange\n\t\
+(9) Pink\n\t(10) Purple\n\t\
+(11) Red\n\t(12) Sand\n\t\
+(13) Teal\n\t(14) Yellow"
+echo "For other settings, use option -h with the script."
 read IN
+
+if [ -z $IN ]; then
+  IN=0
+fi
 
 SRC=$PWD/src
 DIST=$PWD/usr/share/icons
@@ -272,7 +302,7 @@ SVG_DPI=96
 
 # Parse options to script.
 POSITIONAL_ARGS=()
-VARIANT="${VARIANTS[0]}"    # Default = aqua
+VARIANT="${VARIANTS[0]}"    # Default = all
 PLATFORM="${PLATFORMS[0]}"  # Default = unix
 MAX_DPI=${DPIS[3]}          # Default = xhd
 while [[ $# -gt 0 ]]; do
@@ -286,11 +316,11 @@ while [[ $# -gt 0 ]]; do
       MAX_DPI="$2"
       shift; shift; # Shift past option and value.
       ;;
-    -t|--type)
-      VARIANT="$2"
-      validate_option 'variant' "$VARIANT" || { show_usage; exit 2; }
-      shift ; shift; # Shift past option and value.
-      ;;
+    # -t|--type)
+    #   VARIANT="$2"
+    #   validate_option 'variant' "$VARIANT" || { show_usage; exit 2; }
+    #   shift ; shift; # Shift past option and value.
+    #   ;;
     -p|--platform)
       PLATFORM="$2"
       validate_option 'platform' "$PLATFORM" || { show_usage; exit 2; }
@@ -312,25 +342,29 @@ set -- "${POSITIONAL_ARGS[@]}"
 # Begin the build based on User's choice
 set_sizes "$MAX_DPI" || { echo "Unrecognized DPI."; exit 1; }
 
-if [ $IN -gt 0 -a $IN -lt 12 ]; then
-  generate_in
-  echo -e "Building variant: ${VARIANTS[IN-1]}\n"
-  VARIANT=${VARIANTS[IN-1]}
-  for size in "${SIZES[@]}"; do
-    render "$size" "$VARIANT"
-  done
-  assemble "$VARIANT"
-  echo -e "\nBuilding $VARIANT successful."
-elif [ $IN -eq 12 ]; then
-  echo -e "Building all variants:\n"
-  generate_in
+if [ $IN -eq 0 ]; then
+  generate_in >log
+  echo -e "\nBuilding all variants...\n"
   for VARIANT in "${VARIANTS[@]}"; do
+    echo -e "Building variant: $VARIANT..."
     for size in "${SIZES[@]}"; do
+      echo -e "\tRendering $size"
       render "$size" "$VARIANT"
     done
     assemble "$VARIANT"
+    echo -e "Variant \"$VARIANT\" built successfully.\n"
   done
-  echo -e "\nAll variants built successfully."
+  echo -e "All variants built successfully."
+elif [ $IN -gt 0 -a $IN -le 14 ]; then
+  generate_in >log
+  echo -e "\nBuilding variant: ${VARIANTS[IN-1]}..."
+  VARIANT=${VARIANTS[IN-1]}
+  for size in "${SIZES[@]}"; do
+    echo -e "\tRendering $size"
+    render "$size" "$VARIANT"
+  done
+  assemble "$VARIANT"
+  echo -e "Variant \"$VARIANT\" built successfully.\n"
 else
 	echo -e "Your choice does not match with any of the given.\n"
   show_usage

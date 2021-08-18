@@ -4,5 +4,5 @@
 	dh ${@}
 
 override_dh_builddeb:
-	dh_icons
 	dh_builddeb -- -Zxz -z9
+	

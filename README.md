@@ -18,17 +18,21 @@ This cursor pack provide the following colours:
 
 | Name        | Build option name   |
 | :---------  | :------------------ |
-| Aqua        | `-t aqua` (default) |
-| Blue        | `-t blue`           |
-| Dark/Black  | `-t dark`           |
-| Green       | `-t green`          |
-| Grey        | `-t grey`           |
-| Pink        | `-t pink`           |
-| Purple      | `-t purple`         |
-| Red         | `-t red`            |
-| Teal        | `-t teal`           |
-| White/Light | `-t light`          |
-| Yellow      | `-t yellow`        |
+| All         | (default)           |
+| Aqua        | `-t Aqua`           |
+| Blue        | `-t Blue`           |
+| Brown       | `-t Brown`          |
+| Dark/Black  | `-t Dark`           |
+| Green       | `-t Green`          |
+| Grey        | `-t Grey`           |
+| White/Light | `-t Light`          |
+| Orange      | `-t Orange`         |
+| Pink        | `-t Pink`           |
+| Purple      | `-t Purple`         |
+| Red         | `-t Red`            |
+| Sand        | `-t Sand`           |
+| Teal        | `-t Teal`           |
+| Yellow      | `-t Yellow`         |
 
 ## Supported DPIs
 
