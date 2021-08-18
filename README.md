@@ -162,3 +162,7 @@ If you like this cursor theme and want to support me, please consider [donating]
 | Pink                  | Purple                  |
 | --------------------- | ----------------------- |
 | ![](preview/pink.png) | ![](preview/purple.png) |
+
+| Red                  | Purple                  |
+| -------------------- | ----------------------- |
+| ![](preview/red.png) | ![](preview/purple.png) |
