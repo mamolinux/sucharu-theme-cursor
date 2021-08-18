@@ -155,6 +155,6 @@ If you like this cursor theme and want to support me, please consider [donating]
 | ---------------------- | --------------------- |
 | ![](preview/green.png) | ![](preview/grey.png) |
 
-| Light/White            | Grey                  |
-| ---------------------- | --------------------- |
-| ![](preview/light.png) | ![](preview/grey.png) |
+| Light/White            | Orange                  |
+| ---------------------- | ----------------------- |
+| ![](preview/light.png) | ![](preview/orange.png) |
