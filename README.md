@@ -145,7 +145,7 @@ If you like this cursor theme and want to support me, please consider [donating]
 
 | Aqua                  | Blue                   |
 | --------------------- | ---------------------- |
-| ![](preview/dark.png) | ![](preview/light.png) |
+| ![](preview/aqua.png) | ![](preview/light.png) |
 
 | Dark/Black             | Green                 |
 | ---------------------- | --------------------- |
