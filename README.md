@@ -150,3 +150,7 @@ If you like this cursor theme and want to support me, please consider [donating]
 | Brown                  | Dark/Black            |
 | ---------------------- | --------------------- |
 | ![](preview/brown.png) | ![](preview/dark.png) |
+
+| Green                  | Dark/Black            |
+| ---------------------- | --------------------- |
+| ![](preview/green.png) | ![](preview/dark.png) |
