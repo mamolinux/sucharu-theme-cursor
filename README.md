@@ -151,6 +151,6 @@ If you like this cursor theme and want to support me, please consider [donating]
 | ---------------------- | --------------------- |
 | ![](preview/brown.png) | ![](preview/dark.png) |
 
-| Green                  | Dark/Black            |
+| Green                  | Grey            |
 | ---------------------- | --------------------- |
-| ![](preview/green.png) | ![](preview/dark.png) |
+| ![](preview/green.png) | ![](preview/grey.png) |
