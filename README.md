@@ -3,10 +3,10 @@
 Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors with different [colours][colour].
 
 [freedomos]: https://freedom-os.sourceforge.io/
-[colour]: https://github.com/hsbasu/freedomos-cursors#supported-colours
+[colour]: https://github.com/hsbasu/freedom-y-cursors#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
-The source files were made in Inkscape, and the theme was designed to pair well with my icon pack, [La Capitaine][la-capitaine-icons].
+The source files were made in Inkscape, and the theme was designed to pair well with icon pack, [La Capitaine][la-capitaine-icons].
 
 [la-capitaine-icons]: https://github.com/keeferrourke/la-capitaine-icon-theme
 
@@ -77,7 +77,7 @@ The script has a few options described below:
 | `-t`   | See [Colours][colour] | Choose the variant to build     |
 | `-d`   | See [DPIs][dpi]       | Set the max DPI to render       |
 
-[dpi]: https://github.com/hsbasu/freedomos-cursors#supported-dpis
+[dpi]: https://github.com/hsbasu/freedom-y-cursors#supported-dpis
 
 <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small>
 
