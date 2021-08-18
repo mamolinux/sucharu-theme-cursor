@@ -159,6 +159,6 @@ If you like this cursor theme and want to support me, please consider [donating]
 | ---------------------- | ----------------------- |
 | ![](preview/light.png) | ![](preview/orange.png) |
 
-| Pink                  | Orange                  |
+| Pink                  | Purple                  |
 | --------------------- | ----------------------- |
-| ![](preview/pink.png) | ![](preview/orange.png) |
+| ![](preview/pink.png) | ![](preview/purple.png) |
