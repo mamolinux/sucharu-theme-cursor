@@ -158,3 +158,7 @@ If you like this cursor theme and want to support me, please consider [donating]
 | Light/White            | Orange                  |
 | ---------------------- | ----------------------- |
 | ![](preview/light.png) | ![](preview/orange.png) |
+
+| Pink                  | Orange                  |
+| --------------------- | ----------------------- |
+| ![](preview/pink.png) | ![](preview/orange.png) |
