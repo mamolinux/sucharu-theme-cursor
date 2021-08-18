@@ -1,3 +1,25 @@
+freedom-y-cursors (1.1.0) stable; urgency=medium
+
+  * Automate debian build process
+  * Finalize modifications of colour variations.
+  * Update variation "Yellow"
+  * Update variation "Teal"
+  * Update variation "Sand"
+  * Update variation "Red"
+  * Update variation "Purple"
+  * Update variation "Pink"
+  * Update variation "Orange"
+  * Update variation "Light"
+  * Update variation "Grey"
+  * Update variation "Green"
+  * Update variation "Dark"
+  * Update variation "Brown"
+  * Update variation "Blue"
+  * Update variation "Aqua"
+  * Update repo to create deb installer 
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Wed, 18 Aug 2021 22:43:53 +0530
+
 freedom-y-cursors (1.0.0) stable; urgency=medium
 
   * Initial release.
