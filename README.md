@@ -166,3 +166,7 @@ If you like this cursor theme and want to support me, please consider [donating]
 | Red                  | Sand                  |
 | -------------------- | --------------------- |
 | ![](preview/red.png) | ![](preview/sand.png) |
+
+| Teal                  | Sand                  |
+| --------------------- | --------------------- |
+| ![](preview/teal.png) | ![](preview/sand.png) |
