@@ -28,7 +28,7 @@ This cursor pack provide the following colours:
 | Red         | `-t red`            |
 | Teal        | `-t teal`           |
 | White/Light | `-t light`          |
-| Yellow      | `-t yewllow`        |
+| Yellow      | `-t yellow`        |
 
 ## Supported DPIs
 
@@ -143,10 +143,10 @@ If you like this cursor theme and want to support me, please consider [donating]
 
 ## Preview
 
-| Aqua                  | Blue                   |
-| --------------------- | ---------------------- |
+| Aqua                  | Blue                  |
+| --------------------- | --------------------- |
 | ![](preview/aqua.png) | ![](preview/blue.png) |
 
-| Dark/Black             | Green                 |
+| Brown                  | Dark/Black            |
 | ---------------------- | --------------------- |
-| ![](preview/dark.png) | ![](preview/light.png) |
+| ![](preview/brown.png) | ![](preview/dark.png) |
