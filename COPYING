@@ -1,5 +1,8 @@
-Copyright (c) 2016 Keefer Rourke <keefer.rourke@gmail.com> and others.
-Capitaine cursors are based on the KDE Breeze icon theme.
+Copyright (c) 2016 Keefer Rourke <keefer.rourke@gmail.com>
+Copyright (c) 2021 Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
+
+freedom-y cursors are based on the KDE Breeze icon theme and
+Capitaine cursors.
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -38,7 +41,5 @@ Clarification:
 
   The exception in section 5 of the GNU Lesser General Public License covers
   the use of elements of this art library in a GUI.
-
- https://krourke.org
 
 -----
