@@ -1,14 +1,16 @@
 ## Freedom OS Cursors
 
-Cursor theme for [Freedom OS][freedomos] Based on Capitaine Cursors with different [colours][colour].
+Cursor theme for [Freedom OS][freedomos] Based on [Capitaine Cursors][capitaine-cursors] with different [colour][colour] variations.
 
 [freedomos]: https://freedom-os.sourceforge.io/
+[capitaine-cursors]: https://github.com/keeferrourke/capitaine-cursors
 [colour]: https://github.com/hsbasu/freedom-y-cursors#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
-The source files were made in Inkscape, and the theme was designed to pair well with icon pack, [La Capitaine][la-capitaine-icons].
+The source files were made in Inkscape, and the theme is designed to pair well with [mint-y][mint-y-theme] based themes [freedom-themes][freedom-themes] for all colour variations.
 
-[la-capitaine-icons]: https://github.com/keeferrourke/la-capitaine-icon-theme
+[mint-y-theme]: https://github.com/linuxmint/mint-themes
+[freedom-themes]: https://github.com/hsbasu/freedom-themes
 
 This cursor should scale appropriately for any display resolution.
 
@@ -64,14 +66,14 @@ sudo dnf install inkscape xorg-x11-apps     # Fedora, EPEL based distros
 brew cask install xquartz inkscape          # macOS
 ```
 
-Then run the provided script:
+Then run the provided script with optional arguments:
 
 ```
-./build.sh
+./build.sh [option]
 ```
 
 This will generate the pixmaps and appropriate aliases.
-The freshly compiled cursor theme will be located in the `dist/` folder.
+The freshly compiled cursor theme will be located in the `usr/` folder.
 
 The script has a few options described below:
 
@@ -83,11 +85,11 @@ The script has a few options described below:
 
 [dpi]: https://github.com/hsbasu/freedom-y-cursors#supported-dpis
 
-<small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small>
+<!-- <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small> -->
 
 ## Pre-built binaries
 
-Pre-built binaries are available for download at [pling.com](https://www.pling.com/p/1148692) :heart:
+Pre-built binaries for debian based systems are available for download at [GitHub](https://github.com/hsbasu/freedom-y-cursors/releases/latest) :heart:
 
 ## Installation
 
@@ -137,13 +139,8 @@ The Windows build comes with an INF file to make installation easy.
 
 ## License
 
-Capitaine cursors is based on KDE Breeze cursors, as such it falls under the same license.
-
-Capitaine cursors is LGPLv3. See COPYING for more details.
-
-## Donations
-
-If you like this cursor theme and want to support me, please consider [donating](https://paypal.me/keeferrourke).
+freedom-y cursors is based on KDE Breeze cursors and Capitaine cursors, as such it falls under the same license.
+freedom-ycursors is LGPLv3. See COPYING for more details.
 
 ## Preview
 
@@ -174,3 +171,14 @@ If you like this cursor theme and want to support me, please consider [donating]
 | Teal                  | Yellow                  |
 | --------------------- | ----------------------- |
 | ![](preview/teal.png) | ![](preview/yellow.png) |
+
+## Contributors
+[Keefer Rourke](https://github.com/keeferrourke) <keefer.rourke@gmail.com>
+[Himadri Sekhar Basu](https://github.com/hsbasu) <hsb10@iitbbs.ac.in>
+
+## Donations
+
+<!-- If you like this cursor theme and want to support me, please consider [donating](https://paypal.me/keeferrourke). -->
+
+## Known issues
+1. xcursorgen throws some warnings during processing.
