@@ -261,7 +261,7 @@ function validate_option()
 }
 
 # Check dependencies are present.
-DEPENDENCIES=(inkscape xcursorgen)
+DEPENDENCIES=(bc inkscape xcursorgen)
 for dep in "${DEPENDENCIES[@]}"; do
   if ! command -v "$dep" >/dev/null; then
     echo "$dep is not installed, exiting."
