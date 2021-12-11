@@ -229,15 +229,24 @@ function assemble()
 
 function show_usage()
 {
-  echo -e "This script builds the capitaine-cursor theme.\n"
+  echo -e "This script builds the mamolinux-cursors."
+  echo -e "Usage: ./build.sh [color-code]"
+  echo -e "Choose colour variant from the list below:\n\t\
+(0) All(Default)\n\t\
+(1) Aqua\n\t(2) Blue\n\t\
+(3) Brown\n\t(4) Dark/Black\n\t\
+(5) Green\n\t(6) Grey\n\t\
+(7) Light/White\n\t(8) Orange\n\t\
+(9) Pink\n\t(10) Purple\n\t\
+(11) Red\n\t(12) Sand\n\t\
+(13) Teal\n\t(14) Yellow\n"
   # echo -e "Usage: ./build.sh [ -d DPI ] [ -t VARIANT ] [ -p PLATFORM ]"
-  echo -e "Usage: ./build.sh [ -d DPI ] [ -p PLATFORM ]"
+  # echo -e "Usage: ./build.sh [ -d DPI ] [ -p PLATFORM ]"
   echo -e "  -h, --help\t\tPrint this help"
-  echo -e "  -d, --max-dpi\t\tSet the max DPI to render. Higher values take longer."
-  echo -e                "\t\t\tOne of (" "${DPIS[@]}" ")."
+  # echo -e "  -d, --max-dpi\t\tSet the max DPI to render. Higher values take longer."
+  # echo -e                "\t\t\tOne of (" "${DPIS[@]}" ")."
   # echo -e "  -t, --type\t\tSpecify the build variant. One of (" "${VARIANTS[@]}" ")."
-  echo -e "  -p, --platform\tSpecify the build platform. One of (" "${PLATFORMS[@]}" ")."
-  echo
+  # echo -e "  -p, --platform\tSpecify the build platform. One of (" "${PLATFORMS[@]}" ")."
 }
 
 function validate_option()
@@ -275,21 +284,16 @@ ulimit -s 4096
 # Let user choose the colour variant
 
 VARIANTS=('Aqua' 'Blue' 'Brown' 'Dark' 'Green' 'Grey' 'Light' 'Orange' 'Pink' 'Purple' 'Red' 'Sand' 'Teal' 'Yellow')
-echo -e "Choose colour variant from the list below:\n\t\
-(0) All(Default)\n\t\
-(1) Aqua\n\t(2) Blue\n\t\
-(3) Brown\n\t(4) Dark/Black\n\t\
-(5) Green\n\t(6) Grey\n\t\
-(7) Light/White\n\t(8) Orange\n\t\
-(9) Pink\n\t(10) Purple\n\t\
-(11) Red\n\t(12) Sand\n\t\
-(13) Teal\n\t(14) Yellow"
-echo "For other settings, use option -h with the script."
-read IN
 
-if [ -z $IN ]; then
-  IN=0
+if [ -z $1 ]; then
+  show_usage
+	echo -e "Your choice does not match with any of the given.\n"
+  echo -e "Exiting ...\n"
+	exit 1
+else
+  IN=$1
 fi
+echo -e "$IN\n"
 
 SRC=$PWD/src
 DIST=$PWD/usr/share/icons
@@ -344,7 +348,7 @@ set -- "${POSITIONAL_ARGS[@]}"
 # Begin the build based on User's choice
 set_sizes "$MAX_DPI" || { echo "Unrecognized DPI."; exit 1; }
 
-if [ $IN -eq 0 ]; then
+if [ $IN == 0 ]; then
   generate_in >log
   echo -e "\nBuilding all variants...\n"
   for VARIANT in "${VARIANTS[@]}"; do
@@ -367,11 +371,6 @@ elif [ $IN -gt 0 -a $IN -le 14 ]; then
   done
   assemble "$VARIANT"
   echo -e "Variant \"$VARIANT\" built successfully.\n"
-else
-	echo -e "Your choice does not match with any of the given.\n"
-  show_usage
-  echo -e "Exiting ...\n"
-	exit 1
 fi
 
 exit 0
