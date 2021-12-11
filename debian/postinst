@@ -5,7 +5,7 @@ case "$1" in
     configure|abort-upgrade|abort-remove|abort-deconfigure)
     if which update-icon-caches >/dev/null 2>&1
     then
-        update-icon-caches -f FreedomOS-*
+        update-icon-caches -f /usr/share/icons/Sucharu*
     fi
     ;;
     *)
