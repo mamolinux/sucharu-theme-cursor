@@ -2,6 +2,7 @@
 
 # Capitaine cursors, macOS inspired cursors based on KDE Breeze
 # Copyright (c) 2016 Keefer Rourke <mail@krourke.org> and others.
+# Copyright (c) 2021 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
 
 function set_sizes()
 {
@@ -124,8 +125,8 @@ function assemble()
   #  $1 = Aqua, Blue, Brown, Dark, Green, Grey, Light, Orange, Pink, Purple, Red, Sand, Teal, Yellow
   variant="$1"
 
-  THEME_NAME="FreedomOS"
-  DIST_DIRNAME="FreedomOS"
+  THEME_NAME="Sucharu"
+  DIST_DIRNAME="Sucharu"
 
   case "$variant" in
     Aqua)
@@ -188,7 +189,7 @@ function assemble()
   esac
 
   OUTPUT_DIR="$BASE_DIR/cursors"
-  INDEX_FILE="$BASE_DIR/index.theme"
+  INDEX_FILE="$BASE_DIR/cursor.theme"
 
   mkdir -p "$BASE_DIR"
   mkdir -p "$OUTPUT_DIR"
@@ -217,7 +218,7 @@ function assemble()
   # Write the index.theme file.
   if [ ! -e "$INDEX_FILE" ]; then
     touch "$INDEX_FILE"
-    echo -e "[Icon Theme]\nName=$THEME_NAME\nComment=A stylish cursor for humans" > "$INDEX_FILE"
+    echo -e "[Icon Theme]\nName=$THEME_NAME\nInherits=$THEME_NAME\nComment=A stylish cursor for humans" > "$INDEX_FILE"
   fi
   
   # Copy a thumbnail.png to serve as a preview in some environments.

@@ -1,16 +1,16 @@
-## Freedom OS Cursors
+# Sucharu Cursors
 
-Cursor theme for [Freedom OS][freedomos] Based on [Capitaine Cursors][capitaine-cursors] with different [colour][colour] variations.
+Cursor theme for [MamoLinux][mamolinux] Based on [Capitaine Cursors][capitaine-cursors] with different [colour][colour] variations.
 
-[freedomos]: https://freedom-os.sourceforge.io/
+[mamolinux]: https://mamolinux.sourceforge.io/
 [capitaine-cursors]: https://github.com/keeferrourke/capitaine-cursors
 [colour]: https://github.com/hsbasu/freedom-y-cursors#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
-The source files were made in Inkscape, and the theme is designed to pair well with [mint-y][mint-y-theme] based themes [freedom-themes][freedom-themes] for all colour variations.
+The source files were made in Inkscape, and the theme is designed to pair well with [mint-y][mint-y-theme] based themes [Sucharu][mamolinux-themes] for all colour variations.
 
 [mint-y-theme]: https://github.com/linuxmint/mint-themes
-[freedom-themes]: https://github.com/hsbasu/freedom-themes
+[mamolinux-themes]: https://github.com/hsbasu/mamolinux-themes
 
 This cursor should scale appropriately for any display resolution.
 
@@ -58,11 +58,11 @@ Pre-built packages are available for download.
 
 That said, you'll find everything you need to build and modify this cursor set in the `src/` directory.
 
-Make sure `inkscape` and `xcursorgen` are installed
+Make sure `bc`, `inkscape` and `xcursorgen` are installed
 
 ```
-sudo apt install inkscape x11-apps          # Debian, Ubuntu based distros
-sudo dnf install inkscape xorg-x11-apps     # Fedora, EPEL based distros
+sudo apt install bc inkscape x11-apps          # Debian, Ubuntu based distros
+sudo dnf install bc inkscape xorg-x11-apps     # Fedora, EPEL based distros
 brew cask install xquartz inkscape          # macOS
 ```
 
@@ -83,13 +83,13 @@ The script has a few options described below:
 | `-t`   | See [Colours][colour] | Choose the variant to build     |
 | `-d`   | See [DPIs][dpi]       | Set the max DPI to render       |
 
-[dpi]: https://github.com/hsbasu/freedom-y-cursors#supported-dpis
+[dpi]: https://github.com/hsbasu/mamolinux-cursors#supported-dpis
 
 <!-- <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small> -->
 
 ## Pre-built binaries
 
-Pre-built binaries for debian based systems are available for download at [GitHub](https://github.com/hsbasu/freedom-y-cursors/releases/latest) :heart:
+Pre-built binaries for debian based systems are available for download at [GitHub](https://github.com/hsbasu/mamolinux-cursors/releases/latest) :heart:
 
 ## Installation
 
@@ -99,48 +99,46 @@ To install the cursor theme simply copy the theme to your icons directory.
 For local user installation:
 
 ```
-mkdir -p ~/.icons/capitaine-cursors
-cp -pr path/to/theme/ ~/.icons/capitaine-cursors
+mkdir -p ~/.icons/
+cp -pr usr/share/icons/* ~/.icons/
 ```
 
 For system-wide installation for all users:
 
 ```
-sudo cp -pr path/to/theme/ /usr/share/icons/capitaine-cursors
+sudo cp -pr usr/share/icons/* /usr/share/icons/
 ```
 
 Then set the theme with your preferred desktop tools.
 
 #### Fedora and EPEL
 
-There is a third-party Copr repository with ready-to-use RPMs:
-
 ```
-sudo dnf copr enable tcg/themes
-sudo dnf install la-capitaine-cursor-theme
+Coming Soon or create a PR
 ```
 
 #### Arch Linux
 
-Capitaine cursors are available in the official Arch Linux repositories.
-
 ```
-pacman -S capitaine-cursors
+Coming Soon or create a PR
 ```
 
 ### Windows
 
-The Windows build comes with an INF file to make installation easy.
+```
+Coming Soon or create a PR
+```
+<!-- The Windows build comes with an INF file to make installation easy.
 
  1. Open `.windows/` in Explorer, and right click on `install.inf`.
  2. Click 'Install' from the context menu, and authorise the modifications to your system.
  3. Open `Control Panel` > `Personalisation and Appearance` > `Change mouse pointers`, and select Capitaine cursors.
- 4. Click 'Apply'.
+ 4. Click 'Apply'. -->
 
 ## License
 
-freedom-y cursors is based on KDE Breeze cursors and Capitaine cursors, as such it falls under the same license.
-freedom-ycursors is LGPLv3. See COPYING for more details.
+Sucharu cursors is based on KDE Breeze cursors and Capitaine cursors, as such it falls under the same license.
+Sucharu cursors is LGPLv3. See COPYING for more details.
 
 ## Preview
 
@@ -173,12 +171,14 @@ freedom-ycursors is LGPLv3. See COPYING for more details.
 | ![](preview/teal.png) | ![](preview/yellow.png) |
 
 ## Contributors
-[Keefer Rourke](https://github.com/keeferrourke) <keefer.rourke@gmail.com>
-[Himadri Sekhar Basu](https://github.com/hsbasu) <hsb10@iitbbs.ac.in>
+
+### [Himadri Sekhar Basu](https://github.com/hsbasu)
+
+### [Keefer Rourke](https://github.com/keeferrourke)
+
+He is the original creator of Capitaine cursors.
 
 ## Donations
 
-<!-- If you like this cursor theme and want to support me, please consider [donating](https://paypal.me/keeferrourke). -->
-
 ## Known issues
-1. xcursorgen throws some warnings during processing.
+1. [x] xcursorgen throws some warnings during processing.
