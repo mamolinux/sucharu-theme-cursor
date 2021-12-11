@@ -114,6 +114,7 @@ function render()
       wait $(jobs -p)
     fi
   done
+  wait
 }
 
 
