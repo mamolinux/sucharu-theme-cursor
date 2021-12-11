@@ -1,3 +1,17 @@
+mamolinux-cursors (1.1.1) stable; urgency=medium
+
+  * Update post removal script (postrm) for debian installer.
+  * Add new copyright message.
+  * Update README.
+  * Rename theme
+  * Fix xcursorgen warnings
+  * Add bc as build dependency
+  * Fix post install script
+  * Fix inkskape warnings
+  * Fix make file and build script for automated build
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Sat, 11 Dec 2021 11:23:37 +0530
+
 freedom-y-cursors (1.1.0) stable; urgency=medium
 
   * Automate debian build process
