@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: freedom-y-cursors
+Upstream-Name: mamolinux-cursors
 Upstream-Contact: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
-Source: https://github.com/hsbasu/freedom-y-cursors
+Source: https://github.com/hsbasu/mamolinux-cursors
 
 Files: *
 Copyright: 2021 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and Contributors
