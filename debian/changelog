@@ -1,3 +1,9 @@
+mamolinux-cursors (1.1.2) stable; urgency=medium
+
+  *  Update debian packaging
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Wed, 22 Dec 2021 16:04:36 +0530
+
 mamolinux-cursors (1.1.1) stable; urgency=medium
 
   * Update post removal script (postrm) for debian installer.
