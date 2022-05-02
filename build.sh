@@ -2,7 +2,7 @@
 
 # Capitaine cursors, macOS inspired cursors based on KDE Breeze
 # Copyright (c) 2016 Keefer Rourke <mail@krourke.org> and others.
-# Copyright (c) 2021 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
+# Copyright (c) 2021-2022 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
 
 function set_sizes()
 {
