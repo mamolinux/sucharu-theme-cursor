@@ -1,7 +1,7 @@
 Source: mamolinux-cursors
 Section: gnome
 Priority: optional
-Homepage: https://github.com/hsbasu/freedomos-cursors
+Homepage: https://github.com/hsbasu/mamolinux-cursors
 Maintainer: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
 Build-Depends: debhelper (>= 12), bc, inkscape, gtk2-engines-pixbuf, gtk2-engines-murrine, gnome-themes-standard, x11-apps
 Standards-Version: 4.5.0
