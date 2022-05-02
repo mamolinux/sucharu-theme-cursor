@@ -1,3 +1,11 @@
+mamolinux-cursors (1.1.3) stable; urgency=medium
+
+  * Update copyright year and homepage (#1)
+    - Update copyright year to 2022
+    - Update homepage to github.com/hsbasu/mamolinux-cursors
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Mon, 02 May 2022 23:07:52 +0530
+
 mamolinux-cursors (1.1.2) stable; urgency=medium
 
   *  Update debian packaging
