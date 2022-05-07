@@ -1,3 +1,24 @@
+mamolinux-themes-cursor (1.1.4) stable; urgency=medium
+
+  * Fix lintian warnings in debian (#2)
+    - debian/postinst: fix maintainer-script-lacks-debhelper-token
+    - debian/postrm: fix maintainer-script-lacks-debhelper-token
+    - debian/rules: fix no-newline-at-end
+  * Update debian packaging (#3)
+    - COPYING: Update copyright year and rename theme to Sucharu
+    - LICENSE: deleted
+    - anicursorgen.py: use python3
+    - build.sh: Add LICENSE text
+    - debian/README.debian: Add
+    - debian/control: rename package to mamolinux-themes-cursor
+       and update architecture
+    - debian/copyright: update LICENSE if individual files and copyright year
+  * update builder script for better control (#4)
+    - build.sh: restore user options for DPI and others, and Update usage
+    - Makefile: update auto-build options
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Sat, 07 May 2022 20:15:05 +0530
+
 mamolinux-cursors (1.1.3) stable; urgency=medium
 
   * Update copyright year and homepage (#1)
