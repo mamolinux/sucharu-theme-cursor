@@ -122,7 +122,7 @@ function render()
   esac
 
   for svg_file in "$SRC/svg/$variant"/*.svg; do
-    inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file" >>log &
+    inkscape "${INKSCAPE_OPTS[@]}" "$OUTPUT_DIR/$(basename "${svg_file%.svg}").png" "$svg_file" >>log 2>&1 &
     # allow only to execute $(nproc) jobs in parallel
     if [[ $(jobs -r -p | wc -l) -gt $(nproc) ]]; then
       # wait only for first job
@@ -245,34 +245,40 @@ function assemble()
 function show_usage()
 {
   echo -e "This script builds the mamolinux-cursors."
-  echo -e "Usage: ./build.sh [color-code]"
-  echo -e "Choose colour variant from the list below:\n\t\
-(0) All(Default)\n\t\
-(1) Aqua\n\t(2) Blue\n\t\
-(3) Brown\n\t(4) Dark/Black\n\t\
-(5) Green\n\t(6) Grey\n\t\
-(7) Light/White\n\t(8) Orange\n\t\
-(9) Pink\n\t(10) Purple\n\t\
-(11) Red\n\t(12) Sand\n\t\
-(13) Teal\n\t(14) Yellow\n"
-  # echo -e "Usage: ./build.sh [ -d DPI ] [ -t VARIANT ] [ -p PLATFORM ]"
-  # echo -e "Usage: ./build.sh [ -d DPI ] [ -p PLATFORM ]"
+  echo -e "Minimal Usage: ./build.sh [ -t color-code ]"
+  echo -e "Usage: ./build.sh [ -d DPI ] [ -t color-code ] [ -p PLATFORM ]"
+  echo -e "Usage: ./build.sh [ -d DPI ] [ -p PLATFORM ]"
   echo -e "  -h, --help\t\tPrint this help"
-  # echo -e "  -d, --max-dpi\t\tSet the max DPI to render. Higher values take longer."
-  # echo -e                "\t\t\tOne of (" "${DPIS[@]}" ")."
-  # echo -e "  -t, --type\t\tSpecify the build variant. One of (" "${VARIANTS[@]}" ")."
-  # echo -e "  -p, --platform\tSpecify the build platform. One of (" "${PLATFORMS[@]}" ")."
+  echo -e "  -d, --max-dpi\t\tSet the max DPI to render. Higher values take longer."
+  echo -e                "\t\t\tOne of (" "${DPIS[@]}" ")."
+  echo -e "  -t, --type\t\tSpecify the code for build variant.\n\t\t\t\
+Choose the code for colour variant from the list below:\n\t\t\t\
+(0) All(Default)\n\t\t\t\
+(1) Aqua\t(2) Blue\n\t\t\t\
+(3) Brown\t(4) Dark/Black\n\t\t\t\
+(5) Green\t(6) Grey\n\t\t\t\
+(7) Light/White\t(8) Orange\n\t\t\t\
+(9) Pink\t(10) Purple\n\t\t\t\
+(11) Red\t(12) Sand\n\t\t\t\
+(13) Teal\t(14) Yellow\n"
+  echo -e "  -p, --platform\tSpecify the build platform. One of (" "${PLATFORMS[@]}" ")."
 }
 
 function validate_option()
 {
   valid=0
   case "$1" in
-    # variant)
-    #   for variant in "${VARIANTS[@]}"; do
-    #     if [[ "$2" == "$variant" ]]; then valid=1; fi
-    #   done
-    #   ;;
+    variant)
+      if [[ $2 == '0' ]]; then
+        valid=1;
+      else
+        for variant in "${VARIANTS[@]}"; do
+          if [[ ${VARIANTS[$2]} == "$variant" ]]; then
+            valid=1
+          fi
+        done
+      fi
+      ;;
     platform)
       for platform in "${PLATFORMS[@]}"; do
         if [[ "$2" == "$platform" ]]; then valid=1; fi
@@ -294,21 +300,11 @@ for dep in "${DEPENDENCIES[@]}"; do
   fi
 done
 
+# inkscape fails if ulimit is 'unlimited'
 ulimit -s 4096
 
 # Let user choose the colour variant
-
 VARIANTS=('Aqua' 'Blue' 'Brown' 'Dark' 'Green' 'Grey' 'Light' 'Orange' 'Pink' 'Purple' 'Red' 'Sand' 'Teal' 'Yellow')
-
-if [ -z $1 ]; then
-  show_usage
-	echo -e "Your choice does not match with any of the given.\n"
-  echo -e "Exiting ...\n"
-	exit 1
-else
-  IN=$1
-fi
-echo -e "$IN\n"
 
 SRC=$PWD/src
 DIST=$PWD/usr/share/icons
@@ -321,11 +317,18 @@ DPIS=('lo' 'tv' 'hd' 'xhd' 'xxhd' 'xxxhd')
 SVG_DIM=24
 SVG_DPI=96
 
+# Check whether any option has been given
+if [ -z $1 ]; then
+  show_usage
+	echo -e "Your choice does not match with any of the given.\n"
+  echo -e "Exiting ...\n"
+	exit 1
+fi
+
 # Parse options to script.
 POSITIONAL_ARGS=()
-VARIANT="${VARIANTS[0]}"    # Default = all
 PLATFORM="${PLATFORMS[0]}"  # Default = unix
-MAX_DPI=${DPIS[3]}          # Default = xhd
+MAX_DPI=${DPIS[4]}          # Default = xxhd
 while [[ $# -gt 0 ]]; do
   opt="$1"
   case $opt in
@@ -337,11 +340,12 @@ while [[ $# -gt 0 ]]; do
       MAX_DPI="$2"
       shift; shift; # Shift past option and value.
       ;;
-    # -t|--type)
-    #   VARIANT="$2"
-    #   validate_option 'variant' "$VARIANT" || { show_usage; exit 2; }
-    #   shift ; shift; # Shift past option and value.
-    #   ;;
+    -t|--type)
+      VARIANT="$2"
+      validate_option 'variant' "$VARIANT" || { show_usage; exit 2; }
+      IN=$2
+      shift ; shift; # Shift past option and value.
+      ;;
     -p|--platform)
       PLATFORM="$2"
       validate_option 'platform' "$PLATFORM" || { show_usage; exit 2; }
