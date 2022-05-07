@@ -4,7 +4,7 @@ CURSOR_THEMES ?= $(patsubst %/index.theme,%,$(wildcard ./usr/*/index.theme))
 all: clean build
 
 build:
-	bash build.sh 0
+	bash build.sh -t 0
 
 clean:
 	-rm -rf _build usr *.tar.gz log
