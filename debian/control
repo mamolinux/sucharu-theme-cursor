@@ -1,16 +1,17 @@
 Source: mamolinux-cursors
 Section: gnome
 Priority: optional
-Homepage: https://github.com/hsbasu/mamolinux-cursors
 Maintainer: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
 Build-Depends: debhelper (>= 12), bc, inkscape, gtk2-engines-pixbuf, gtk2-engines-murrine, gnome-themes-standard, x11-apps
 Standards-Version: 4.5.0
+Homepage: https://github.com/hsbasu/mamolinux-cursors
 
-Package: mamolinux-cursors
-Replaces: freedom-y-cursors
-Conflicts: freedom-y-cursors
+Package: mamolinux-themes-cursor
+Architecture: any
+Multi-Arch: foreign
+Replaces: mamolinux-cursors
+Conflicts: mamolinux-cursors
 Depends: ${misc:Depends}
-Architecture: all
 Description: MamoLinux Cursors
  This cursor theme is based on Capitaine Cursors
  with different colours.

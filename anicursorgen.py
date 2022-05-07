@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # anicursorgen
 # Copyright (C) 2015 Руслан Ижбулатов <lrn1986@gmail.com>
