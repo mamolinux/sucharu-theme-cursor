@@ -1,3 +1,15 @@
+sucharu-theme-cursor (1.1.5) stable; urgency=medium
+
+  * Add workflow to update stable branch and funding
+    - Add funding button
+    - Add workflow to update mamolinux/stable branch
+  * Rename package to sucharu-theme-cursor (#5)
+    - Update copyright
+    - mamolinux-themes-cursor is now a transitional
+      metapackage
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Sun, 01 Oct 2023 11:07:11 +0530
+
 mamolinux-themes-cursor (1.1.4) stable; urgency=medium
 
   * Fix lintian warnings in debian (#2)
