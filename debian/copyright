@@ -1,7 +1,52 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: mamolinux-cursors
+Upstream-Name: sucharu-theme-cursor
 Upstream-Contact: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
-Source: https://github.com/hsbasu/mamolinux-cursors
+Source: https://github.com/mamolinux/sucharu-theme-cursor
+
+Files: *
+Copyright: 2016 Keefer Rourke <keefer.rourke@gmail.com>
+           2021-2023 Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
+License: LGPL-3+
+ Sucharu cursors are based on the KDE Breeze icon theme and
+ Capitaine cursors.
+ .
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 3 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>.
+ .
+ Clarification:
+ .
+ The GNU Lesser General Public License or LGPL is written for
+ software libraries in the first place. We expressly want the LGPL to
+ be valid for this artwork library too.
+ .
+ La Capitaine theme icons is a special kind of software library, it is an
+ artwork library, its elements can be used in a Graphical User Interface, or
+ GUI.
+ .
+ Source code, for this library means:
+ - where they exist, SVG;
+ - otherwise, if applicable, the multi-layered formats xcf or psd, or
+ otherwise png;
+ - additionally, the multi-layers Microsoft Windows cursor formats: cur, or ani.
+ .
+ The LGPL in some sections obliges you to make the files carry
+ notices. With images this is in some cases impossible or hardly useful.
+ .
+ With this library a notice is placed at a prominent place in the directory
+ containing the elements. You may follow this practice.
+ .
+ The exception in section 5 of the GNU Lesser General Public License covers
+ the use of elements of this art library in a GUI.
 
 Files:     anicursorgen.py
 Copyright: 2015 Руслан Ижбулатов <lrn1986@gmail.com>
@@ -22,8 +67,7 @@ License:   GPL-3.0+
  On Debian systems, the complete text of the GNU General Public License
  Version 3 can be found in `/usr/share/common-licenses/GPL-3'.
 
-Files:     .gitignore
-           .windows/*
+Files:     .windows/*
            build.sh
            Makefile
            README.md
@@ -33,7 +77,7 @@ Files:     .gitignore
            src/static-cursor-list
            src/config/*
 Copyright: 2016 Keefer Rourke <mail@krourke.org> and others.
-           2021-2022 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
+           2021-2023 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
 License:   GPL-3.0+
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -56,57 +100,29 @@ Files:     product.svg
            src/thumbnail/*
            preview/*
 Copyright: 2016 Keefer Rourke <mail@krourke.org> and others.
-           2021-2022 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
-License:   CC-BY-SA-4
+           2021-2023 Himadri Sekhar Basu <hsb10@iitbbs.ac.in> and others.
+License:   CC-BY-SA
 
-Files:     *
-Copyright: 2016 Keefer Rourke <keefer.rourke@gmail.com>
-           2021-2022 Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
-License: LGPL-3+
- Sucharu cursors are based on the KDE Breeze icon theme and
- Capitaine cursors.
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 3 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-    Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library. If not, see <http://www.gnu.org/licenses/>.
-
- Clarification:
-
-  The GNU Lesser General Public License or LGPL is written for
-  software libraries in the first place. We expressly want the LGPL to
-  be valid for this artwork library too.
-
-  La Capitaine theme icons is a special kind of software library, it is an
-  artwork library, its elements can be used in a Graphical User Interface, or
-  GUI.
-
-  Source code, for this library means:
-   - where they exist, SVG;
-   - otherwise, if applicable, the multi-layered formats xcf or psd, or
-  otherwise png;
-   - additionally, the multi-layers Microsoft Windows cursor formats: cur, or ani.
-
-  The LGPL in some sections obliges you to make the files carry
-  notices. With images this is in some cases impossible or hardly useful.
-
-  With this library a notice is placed at a prominent place in the directory
-  containing the elements. You may follow this practice.
-
-  The exception in section 5 of the GNU Lesser General Public License covers
-  the use of elements of this art library in a GUI.
-
------
-
-Files: usr/share/icons/*
-Copyright: 2016 Keefer Rourke <keefer.rourke@gmail.com>
-           2021-2022 Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
-License: CC-BY-SA-4
+License: CC-BY-SA
+ You are free to:
+ .
+ Share - copy and redistribute the material in any medium or format
+ Adapt - remix, transform, and build upon the material
+ .
+ Under the following terms:
+ .
+ Attribution - You must give appropriate credit, provide a link to the
+ license, and indicate if changes were made. You may do so in any
+ reasonable manner, but not in any way that suggests the licensor
+ endorses you or your use.
+ .
+ ShareAlike - If you remix, transform, or build upon the material, you
+ must distribute your contributions under the same license as the
+ original.
+ .
+ No additional restrictions - You may not apply legal terms or
+ technological measures that legally restrict others from doing
+ anything the license permits.
+ .
+ For more information, see
+ http://creativecommons.org/licenses/by-sa/4.0/
