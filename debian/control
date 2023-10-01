@@ -1,17 +1,38 @@
-Source: mamolinux-cursors
-Section: gnome
+Source: sucharu-theme-cursor
+Section: misc
 Priority: optional
 Maintainer: Himadri Sekhar Basu <hsb10@iitbbs.ac.in>
-Build-Depends: debhelper (>= 12), bc, inkscape, gtk2-engines-pixbuf, gtk2-engines-murrine, gnome-themes-standard, x11-apps
-Standards-Version: 4.5.0
-Homepage: https://github.com/hsbasu/mamolinux-cursors
+Build-Depends: debhelper-compat (= 13),
+               bc,
+               inkscape,
+               gtk2-engines-pixbuf,
+               gtk2-engines-murrine,
+               x11-apps
+Standards-Version: 4.6.0
+Homepage: https://hsbasu.github.io/sucharu-theme-cursor
+Vcs-Browser: https://github.com/mamolinux/sucharu-theme-cursor
+Vcs-Git: https://github.com/mamolinux/sucharu-theme-cursor.git
+
+Package: sucharu-theme-cursor
+Architecture: all
+Depends: ${misc:Depends}
+Replaces: mamolinux-cursors, mamolinux-themes-cursor ( <= 1.1.4 )
+Breaks: mamolinux-cursors, mamolinux-themes-cursor ( <= 1.1.4 )
+Conflicts: mamolinux-cursors, mamolinux-themes-cursor ( <= 1.1.4 )
+Description: Sucharu Cursor theme
+ This cursor theme is based on Capitaine Cursors
+ with different colours. This is the Cursor theme
+ for MamoLinux
+ .
+ This package contains the cursor theme
+ .
+ If you want to follow development, more information here:
+ https://github.com/mamolinux/sucharu-theme-cursor.
 
 Package: mamolinux-themes-cursor
-Architecture: any
-Multi-Arch: foreign
-Replaces: mamolinux-cursors
-Conflicts: mamolinux-cursors
-Depends: ${misc:Depends}
-Description: MamoLinux Cursors
- This cursor theme is based on Capitaine Cursors
- with different colours.
+Architecture: all
+Section: oldlibs
+Depends: sucharu-theme-cursor,
+         ${misc:Depends}
+Description: transitional package for Sucharu Cursor theme
+ This is a transitional package. It can safely be removed.
