@@ -4,13 +4,13 @@ Cursor theme for [MamoLinux][mamolinux] Based on [Capitaine Cursors][capitaine-c
 
 [mamolinux]: https://mamolinux.sourceforge.io/
 [capitaine-cursors]: https://github.com/keeferrourke/capitaine-cursors
-[colour]: https://github.com/hsbasu/freedom-y-cursors#supported-colours
+[colour]: https://github.com/mamolinux/sucharu-theme-cursor#supported-colours
 
 This is an x-cursor theme inspired by macOS and based on KDE Breeze.
 The source files were made in Inkscape, and the theme is designed to pair well with [mint-y][mint-y-theme] based themes [Sucharu][mamolinux-themes] for all colour variations.
 
 [mint-y-theme]: https://github.com/linuxmint/mint-themes
-[mamolinux-themes]: https://github.com/hsbasu/mamolinux-themes
+[mamolinux-themes]: https://github.com/mamolinux/sucharu
 
 This cursor should scale appropriately for any display resolution.
 
@@ -83,13 +83,13 @@ The script has a few options described below:
 | `-t`   | See [Colours][colour] | Choose the variant to build     |
 | `-d`   | See [DPIs][dpi]       | Set the max DPI to render       |
 
-[dpi]: https://github.com/hsbasu/mamolinux-cursors#supported-dpis
+[dpi]: https://github.com/mamolinux/sucharu-theme-cursor#supported-dpis
 
 <!-- <small>*Note: building the win32 cursors from source is not currently supported, but it is on the roadmap.</small> -->
 
 ## Pre-built binaries
 
-Pre-built binaries for debian based systems are available for download at [GitHub](https://github.com/hsbasu/mamolinux-cursors/releases/latest) :heart:
+Pre-built binaries for debian based systems are available for download at [GitHub](https://github.com/mamolinux/sucharu-theme-cursor/releases/latest) :heart:
 
 ## Installation
 
