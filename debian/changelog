@@ -1,3 +1,9 @@
+sucharu-theme-cursor (1.1.6) stable; urgency=medium
+
+  * Fix links in readme (#6)
+
+ -- Himadri Sekhar Basu <hsb10@iitbbs.ac.in>  Thu, 23 May 2024 00:52:08 +0530
+
 sucharu-theme-cursor (1.1.5) stable; urgency=medium
 
   * Add workflow to update stable branch and funding
