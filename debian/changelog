@@ -1,3 +1,9 @@
+sucharu-theme-cursor (1.1.6mamolinux1) stable; urgency=medium
+
+  * No change rebuild.
+
+ -- Himadri Sekhar Basu <mamolinux@mamolinux.org>  Fri, 30 May 2025 00:25:25 +0530
+
 sucharu-theme-cursor (1.1.6) stable; urgency=medium
 
   * Fix links in readme (#6)
